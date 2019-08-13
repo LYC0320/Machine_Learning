@@ -12,6 +12,12 @@ img_row, img_col = train_x.shape[1], train_x.shape[2]
 train_x = train_x.reshape(train_x.shape[0], img_row * img_col)
 test_x = test_x.reshape(test_x.shape[0], img_row * img_col)
 
+train_x = train_x.astype("float32")
+test_x = test_x.astype("float32")
+
+train_x /= 255
+test_x /= 255
+
 train_y = keras.utils.to_categorical(train_y, 10)
 test_y = keras.utils.to_categorical(test_y, 10)
 
